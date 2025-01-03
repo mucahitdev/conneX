@@ -4,7 +4,7 @@
     "slug": "conneX",
     "version": "1.0.0",
 
-    "scheme": "conneX",
+    "scheme": "connex",
     "web": {
       "bundler": "metro",
       "output": "static",
