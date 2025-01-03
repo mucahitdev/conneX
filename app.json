@@ -3,25 +3,29 @@
     "name": "conneX",
     "slug": "conneX",
     "version": "1.0.0",
-
     "scheme": "connex",
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router"],
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      [
+        "react-native-ble-manager",
+        {
+          "isBleRequired": true
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -29,12 +33,32 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.koksoft.conneX",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Bluetooth kullanılacak",
+        "NSLocationWhenInUseUsageDescription": "Konum bilgisi gerekli"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.koksoft.conneX",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "BLUETOOTH_SCAN",
+        "BLUETOOTH_CONNECT"
+      ]
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "26648a76-79d2-46e4-9fdc-29a7db900424"
       }
     }
   }
